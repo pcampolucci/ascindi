@@ -1,0 +1,8 @@
+experiments/test_data/
+experiments/slprj/
+media/
+python_scripts/test_data/
+python_scripts/.ipynb_checkpoints/
+simulator-f16/splrj/
+simulator/slprj/
+theory/slprj/
