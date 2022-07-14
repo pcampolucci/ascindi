@@ -50,14 +50,14 @@ i_theta = [0 1 0];
 i_psi = [0 0 1];
 
 % R unconventional [213]
-pqr_yaw = eye(3) * i_psi';
-pqr_roll = R_psi1 * i_phi';
-pqr_pitch = R_psi1 * R_phi1 * i_theta';
+% pqr_yaw = eye(3) * i_psi';
+% pqr_roll = R_psi1 * i_phi';
+% pqr_pitch = R_psi1 * R_phi1 * i_theta';
 
 % R conventional [321]
-% pqr_roll = eye(3) * i_phi';
-% pqr_pitch = R_phi1 * i_theta';
-% pqr_yaw = R_phi1 * R_theta1 * i_psi';
+pqr_roll = eye(3) * i_phi';
+pqr_pitch = R_phi1 * i_theta';
+pqr_yaw = R_phi1 * R_theta1 * i_psi';
 
 % stack the three together and get the matrix of rotation
 R_mat = horzcat(pqr_roll,pqr_pitch,pqr_yaw);

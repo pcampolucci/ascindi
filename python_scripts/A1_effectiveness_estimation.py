@@ -38,7 +38,7 @@ def actuator_dyn_2nd(x, zeta, omega, dt, maxrate, maxaccel):
 
 
 # Read data from log file
-data = genfromtxt('effectiveness_flights/drag_plate.csv', delimiter=',', skip_header=1)
+data = genfromtxt('test_data/effectiveness_flights/flight_50.csv', delimiter=',', skip_header=1)
 
 # Sample frequency
 sf = 512
@@ -102,4 +102,4 @@ plt.xlabel('t [s]')
 plt.ylabel('command [PPRZ]')
 
 # Show all plots
-# plt.show()
+plt.show()

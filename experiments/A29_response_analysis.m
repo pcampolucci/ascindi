@@ -22,7 +22,7 @@ err_acindi = abs(rad2deg(indi.Data(:,3))-rad2deg(acindi.Data(:,6)));
 err_ascindi = abs(rad2deg(indi.Data(:,3))-rad2deg(ascindi.Data(:,6)));
 
 %% P1 : Tracking Performance All
-figure_1 = figure('Visible', show_fig1, 'Position', [100 200 1000 800]);
+figure_1 = figure('Visible', show_fig1, 'Position', [100 200 600 500]);
 set(figure_1,'defaulttextinterpreter','latex');
 
 tiledlayout(2,1);
@@ -37,7 +37,7 @@ plot(ascindi.Time, rad2deg(ascindi.Data(:,6)),'LineWidth',1.2,'Color','g'); hold
 % reference
 plot(indi.Time, rad2deg(indi.Data(:,3)),'LineWidth',1.2,'Color','k',LineStyle='--'); hold on;
 grid minor;
-ylim([-2 30])
+ylim([-15 10])
 xline(2,LineStyle="--");
 xline(3,LineStyle="--");
 legend('INDI','ACINDI','ASCINDI','reference','Interpreter','latex');
@@ -53,6 +53,8 @@ xline(2,LineStyle="--");
 xline(3,LineStyle="--");
 legend('INDI','ACINDI','ASCINDI','Interpreter','latex');
 xlabel("time [sec]");
-ylabel("$$\theta$$ [deg]");
+ylabel("$$|\theta_{ref} - \theta|$$ [deg]");
 
 linkaxes([ax1,ax2], 'x');
+
+exportgraphics(gcf,'step_response.pdf','ContentType','vector')

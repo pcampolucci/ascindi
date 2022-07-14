@@ -2,7 +2,7 @@
 
 %%% 1 : Process Data from Logger
 
-folder = '06_14_22_doublet_series/';
+folder = 'test_data/06_14_22_doublet_series/';
 
 start_log = 0.27;
 end_log = 0.91;
@@ -84,7 +84,7 @@ fprintf("$\btheta$ & %f & %f & %f \\ \bhline\n", err_theta_indi, err_theta_acind
 fprintf("$\bpsi$ & %f & %f & %f \\ \bhline\n", err_psi_indi, err_psi_acindi, err_psi_ascindi);
 
 %% P1 : Tracking Performance Overview
-figure_1 = figure('Visible', show_fig1, 'Position', [100 200 600 870]);
+figure_1 = figure('Visible', show_fig1, 'Position', [100 200 800 1800]);
 set(figure_1,'defaulttextinterpreter','latex','DefaultFigureRendererMode', 'manual');
 
 tiledlayout(5,2,'TileSpacing','Compact','Padding','Compact');
@@ -99,6 +99,7 @@ xlabel("$x$ [m]");
 ylabel("$y$ [m]");
 zlabel("$z$ [m]");
 view([348 57]);
+legend('ref',legend_3,legend_1,legend_2,'Location','northwestoutside');
 grid minor;
 
 ax1 = nexttile;

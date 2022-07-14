@@ -6,11 +6,11 @@ ref = reference_list;
 % show fig
 show_fig1 = 1;
 
-legend_list = ["reference";"simple filter"];
+legend_list = ["reference"];
 
 % legend list
-for i = 2:n_intervals
-    legend_i = strcat("$$\dot{\Omega}_{\hat{\omega}} = $$", string(coeff_list(i)), "$$\cdot \dot{\Omega}_{\omega}$$");
+for i = 1:n_intervals
+    legend_i = strcat("$$\ddot{q}_{\hat{x}} = $$", string(coeff_list(i)), "$$\cdot \ddot{q}_{x}$$");
     legend_list(i+1) = legend_i;
 end
 
@@ -20,12 +20,15 @@ set(figure_1,'defaulttextinterpreter','latex');
 
 % reference
 plot(time, ref,'LineWidth',1.2,'Color','k',LineStyle='--'); hold on;
-plot(time,response_list(:,1),'Color','r',LineWidth=0.8,LineStyle='--'); hold on;
 % different model
-for i = 2:n_intervals
+for i = 1:n_intervals
     plot(time,response_list(:,i),LineWidth=1.2); hold on;
 end
 grid minor;
-legend(legend_list,'Interpreter','latex');
+xlim([1.5,5.5]);
+ylim([-0.4,0.05]);
+legend(legend_list,'Interpreter','latex','Location','southwest');
 xlabel("time [sec]");
-ylabel("$$\theta$$ [deg]");
+ylabel("$$\theta$$ [rad]");
+
+exportgraphics(gcf,'plots/model_mismatch.pdf','ContentType','vector')

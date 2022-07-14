@@ -209,6 +209,7 @@ grid minor;
 xlabel('Controller Configurations');
 ylabel('Tracking Error');
 legend(findobj(gca,'Tag','Box'),legend_1,legend_2,legend_3,legend_4,legend_5,'Interpreter','latex');
+
 %% P5 : Theta Tracking - 1 Plot
 figure_5 = figure('Visible', show_fig5, 'Position', [100 200 600 500]);
 set(figure_5,'defaulttextinterpreter','latex');
